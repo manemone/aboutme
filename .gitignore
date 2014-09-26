@@ -1,0 +1,63 @@
+### /Users/kagetomo/.gitignore-boilerplates/Global/vim.gitignore
+
+.*.s[a-w][a-z]
+*.un~
+Session.vim
+.netrwhist
+*~
+
+
+### /Users/kagetomo/.gitignore-boilerplates/Global/osx.gitignore
+
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+
+### /Users/kagetomo/.gitignore-boilerplates/Global/linux.gitignore
+
+.*
+!.gitignore
+*~
+
+
+### /Users/kagetomo/.gitignore-boilerplates/rails.gitignore
+
+*.rbc
+*.sassc
+.sass-cache
+capybara-*.html
+.rspec
+.rvmrc
+/.bundle
+/vendor/bundle
+/log/*
+/tmp/*
+/db/*.sqlite3
+/public/system/*
+/coverage/
+/spec/tmp/*
+**.orig
+rerun.txt
+pickle-email-*.html
+.project
+
+
+### /Users/kagetomo/.gitignore-boilerplates/Global/vim.gitignore
+
+.*.s[a-w][a-z]
+*.un~
+Session.vim
+.netrwhist
+*~
+
+
