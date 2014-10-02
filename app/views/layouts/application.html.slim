@@ -7,5 +7,11 @@ html
     = csrf_meta_tags
 
 body
-  .container-fluid
-    = yield
+  #wrapper
+    #sidebar-wrapper
+      ul.sidebar-nav
+        li.sidebar-brand
+          manemone
+    #page-content-wrapper
+      .container-fluid
+        = yield

@@ -1,0 +1,66 @@
+@import './mixin';
+
+.window-panel {
+  @include light-shadow;
+
+  .window-panel-heading {
+    background-color: #D6D8D6;
+    @include linear-gradient($from: #dcdfdc, $to: #d2d4d2);
+    @include border-radius-tl-tr(2px);
+
+    .buttons {
+      display: inline-block;
+      line-height: 1rem;
+      padding: 0.75rem 1rem;
+
+      .button {
+        display: inline-block;
+        box-sizing: border-box;
+        width: 1rem;
+        height: 1rem;
+        margin-right: 0.5rem;
+        @include border-radius(5px);
+        border: 2px solid;
+
+        &:last-child {
+          margin-right: 0;
+        }
+
+        &.batsu {
+          border-color: #dd928f;
+        }
+
+        &.minimize {
+          border-color: #ffbb00;
+        }
+
+        &.optimize {
+          border-color: #00dd52;
+        }
+      }
+    }
+  }
+
+  .window-panel-body {
+    padding: 2rem;
+    background-color: white;
+    color: #222;
+
+    &:first-child {
+      @include border-radius-tl-tr(2px);
+    }
+
+    &:last-child {
+      @include border-radius-bl-br(2px);
+    }
+
+    > h1:first-child,
+    > h2:first-child,
+    > h3:first-child,
+    > h4:first-child,
+    > h5:first-child,
+    > h6:first-child {
+      margin-top: 0;
+    }
+  }
+}
