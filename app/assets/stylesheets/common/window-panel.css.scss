@@ -1,12 +1,15 @@
 @import './mixin';
 
 .window-panel {
-  @include light-shadow;
+  $border-color: rgba(255, 255, 255, 0.15);
+  $border-width: 6px;
+  $border-radius: 6px;
+
+  @include border-radius($border-radius);
 
   .window-panel-heading {
-    background-color: #D6D8D6;
-    @include linear-gradient($from: #dcdfdc, $to: #d2d4d2);
-    @include border-radius-tl-tr(2px);
+    border: $border-width solid $border-color;
+    @include border-radius-tl-tr($border-radius);
 
     .buttons {
       display: inline-block;
@@ -14,13 +17,16 @@
       padding: 0.75rem 1rem;
 
       .button {
+        $button-size: 1.5rem;
+        $button-border-width: 3px;
+
         display: inline-block;
         box-sizing: border-box;
-        width: 1rem;
-        height: 1rem;
-        margin-right: 0.5rem;
-        @include border-radius(5px);
-        border: 2px solid;
+        width: $button-size;
+        height: $button-size;
+        margin-right: $button-size/2;
+        @include border-radius($button-size/2);
+        border: $button-border-width solid;
 
         &:last-child {
           margin-right: 0;
@@ -43,15 +49,17 @@
 
   .window-panel-body {
     padding: 2rem;
-    background-color: white;
-    color: #222;
+    border-left: $border-width solid $border-color;
+    border-right: $border-width solid $border-color;
 
     &:first-child {
-      @include border-radius-tl-tr(2px);
+      @include border-radius-tl-tr($border-radius);
+      border-top: $border-width solid $border-color;
     }
 
     &:last-child {
-      @include border-radius-bl-br(2px);
+      @include border-radius-bl-br($border-radius);
+      border-bottom: $border-width solid $border-color;
     }
 
     > h1:first-child,
