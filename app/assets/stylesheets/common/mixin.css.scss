@@ -209,3 +209,19 @@ $input-border-radius: 0.3125em;
   background-image: linear-gradient(top, $from, $to);
   /*--IE9 DOES NOT SUPPORT CSS3 GRADIENT BACKGROUNDS--*/
 }
+
+@mixin long-shadow($length: 20px, $color: #aaa) {
+  $shadows: "";
+  @for $i from 1px through $length {
+    @if $i == 1px {
+      $shadows: #{$color} #{$i} #{$i}
+    }
+    @else {
+      $shadows: #{$shadows}, #{$color} #{$i} #{$i}
+    }
+  }
+
+  -webkit-box-shadow: $shadows;
+  -moz-box-shadow:    $shadows;
+  box-shadow:         $shadows;
+}

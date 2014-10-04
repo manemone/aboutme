@@ -1,15 +1,12 @@
 @import './mixin';
 
-.window-panel {
-  $border-color: rgba(255, 255, 255, 0.15);
-  $border-width: 6px;
-  $border-radius: 6px;
-
+@mixin window-panel ($border-color: rgba(0, 0, 0, 0.15), $border-width: 4px, $border-radius: 4px) {
   @include border-radius($border-radius);
 
   .window-panel-heading {
-    border: $border-width solid $border-color;
     @include border-radius-tl-tr($border-radius);
+
+    background-color: $border-color;
 
     .buttons {
       display: inline-block;
@@ -17,8 +14,8 @@
       padding: 0.75rem 1rem;
 
       .button {
-        $button-size: 1.5rem;
-        $button-border-width: 3px;
+        $button-size: 1rem;
+        $button-border-width: 2px;
 
         display: inline-block;
         box-sizing: border-box;
@@ -48,7 +45,11 @@
   }
 
   .window-panel-body {
-    padding: 2rem;
+    $body-padding: 2rem;
+
+    overflow: hidden;
+
+    padding: $body-padding;
     border-left: $border-width solid $border-color;
     border-right: $border-width solid $border-color;
 
@@ -70,5 +71,13 @@
     > h6:first-child {
       margin-top: 0;
     }
+
+    > .row {
+      margin: -$body-padding;
+    }
   }
+}
+
+.window-panel {
+  @include window-panel;
 }
