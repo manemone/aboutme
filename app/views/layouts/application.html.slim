@@ -9,9 +9,35 @@ html
 body
   #wrapper
     #sidebar-wrapper
-      ul.sidebar-nav
-        li.sidebar-brand
-          manemone
+      .sidebar
+        ul.sidebar-nav
+          li
+            .cell.brand
+              = image_tag('avatar.jpg')
+          li
+            .cell.carrer
+              .icon
+                span.glyphicon.glyphicon-briefcase
+              .description
+                | career
+          li
+            .cell.skills
+              .icon
+                span.glyphicon.glyphicon-list-alt
+              .description
+                | skills
+          li
+            .cell.works
+              .icon
+                span.glyphicon.glyphicon-th-large
+              .description
+                | works
+          li
+            .cell.contact
+              .icon
+                span.glyphicon.glyphicon-send
+              .description
+                | contact
     #page-content-wrapper
       .container-fluid
         = yield

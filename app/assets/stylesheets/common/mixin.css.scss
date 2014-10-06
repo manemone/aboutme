@@ -225,3 +225,25 @@ $input-border-radius: 0.3125em;
   -moz-box-shadow:    $shadows;
   box-shadow:         $shadows;
 }
+
+@mixin long-text-shadow($length: 20px, $color: #aaa) {
+  $shadows: "";
+  @for $i from 1px through $length {
+    @if $i == 1px {
+      $shadows: #{$color} #{$i} #{$i}
+    }
+    @else {
+      $shadows: #{$shadows}, #{$color} #{$i} #{$i}
+    }
+  }
+
+  -webkit-text-shadow: $shadows;
+  -moz-text-shadow:    $shadows;
+  text-shadow:         $shadows;
+}
+
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
+@mixin custom-font-settings($font-weight: 400) {
+  font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: $font-weight;
+}

@@ -23,6 +23,8 @@
 }
 
 #top {
+  overflow: hidden;
+
   .sorry {
     padding: 4rem;
     margin-top: 2rem;
@@ -35,7 +37,6 @@
 
   .section {
     $padding: 20px;
-    overflow: hidden;
 
     padding: $padding;
   }
