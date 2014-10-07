@@ -23,17 +23,7 @@
 }
 
 #top {
-  overflow: hidden;
-
-  .sorry {
-    padding: 4rem;
-    margin-top: 2rem;
-
-    color: #ecf0f1;
-    background-color: #2c3e50;
-
-    border: none;
-  }
+  overflow-x: hidden;
 
   .section {
     $padding: 20px;
@@ -41,7 +31,7 @@
     padding: $padding;
   }
 
-  .hello {
+  #career {
     @include customized-window-panel(
       $main-color: #41C4F0,
       $bg-color: #59A1CD,
@@ -49,7 +39,23 @@
     );
   }
 
-  .works {
+  #skills {
+    @include customized-window-panel(
+      $main-color: #FF7878,
+      $bg-color: #FC5858,
+      $shadow-color: #4C95C2
+    );
+  }
+
+  #works {
+    @include customized-window-panel(
+      $main-color: #41C4F0,
+      $bg-color: #59A1CD,
+      $shadow-color: #4C95C2
+    );
+  }
+
+  #contact {
     @include customized-window-panel(
       $main-color: #FF7878,
       $bg-color: #FC5858,

@@ -15,25 +15,25 @@ body
             .cell.brand
               = image_tag('avatar.jpg')
           li
-            .cell.carrer
+            = link_to '#career', class: "cell carrer" do
               .icon
                 span.glyphicon.glyphicon-briefcase
               .description
                 | career
           li
-            .cell.skills
+            = link_to '#skills', class: "cell skills" do
               .icon
                 span.glyphicon.glyphicon-list-alt
               .description
                 | skills
           li
-            .cell.works
+            = link_to '#works', class: "cell works" do
               .icon
                 span.glyphicon.glyphicon-th-large
               .description
                 | works
           li
-            .cell.contact
+            = link_to '#contact', class: "cell contact" do
               .icon
                 span.glyphicon.glyphicon-send
               .description
