@@ -51,13 +51,20 @@
         }
 
         &.brand {
-          padding: 0;
+          padding: 5px;
+
+          &:hover {
+            background-color: transparent;
+          }
 
           @include custom-font-settings($font-weight: 700);
 
           img {
-            width: 80px;
-            height: 80px;
+            display: block;
+            width: 70px;
+            height: 70px;
+            margin-bottom: 20px;
+            @include border-radius(50%);
           }
         }
 
