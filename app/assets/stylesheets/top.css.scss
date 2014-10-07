@@ -17,7 +17,7 @@
 
     .sub-col {
       background-color: white;
-      color: $main-color;
+      color: #555;
     }
   }
 }
@@ -83,9 +83,19 @@
       $bg-color: $bg-color,
       $shadow-color: $shadow-color
     );
+
+    table.table {
+      margin: 10px 0;
+
+      tr:first-child {
+        td, th {
+          border-top: none;
+        }
+      }
+    }
   }
 
-  #skills {
+  #experiences {
     $main-color: #FF7878;
     $bg-color: #FC5858;
     $shadow-color: #E24F4F;
