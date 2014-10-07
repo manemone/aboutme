@@ -16,7 +16,7 @@
     }
 
     .sub-col {
-      background-color: white;
+      background-color: #f0f0f0;
       color: #555;
     }
   }
@@ -56,10 +56,6 @@
           @include long-text-shadow($length: 25px, $color: #777);
         }
       }
-
-      .text {
-        
-      }
     }
   }
 
@@ -85,7 +81,7 @@
     );
 
     table.table {
-      margin: 10px 0;
+      margin: 0;
 
       tr:first-child {
         td, th {
