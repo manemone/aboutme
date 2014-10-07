@@ -7,5 +7,37 @@ html
     = csrf_meta_tags
 
 body
-  .container-fluid
-    = yield
+  #wrapper
+    #sidebar-wrapper
+      .sidebar
+        ul.sidebar-nav
+          li
+            .cell.brand
+              = image_tag('avatar.jpg')
+          li
+            = link_to '#career', class: "cell carrer" do
+              .icon
+                span.glyphicon.glyphicon-briefcase
+              .description
+                | career
+          li
+            = link_to '#experiences', class: "cell experiences" do
+              .icon
+                span.glyphicon.glyphicon-list-alt
+              .description
+                | exp.
+          li
+            = link_to '#works', class: "cell works" do
+              .icon
+                span.glyphicon.glyphicon-th-large
+              .description
+                | works
+          li
+            = link_to '#contact', class: "cell contact" do
+              .icon
+                span.glyphicon.glyphicon-send
+              .description
+                | contact
+    #page-content-wrapper
+      .container-fluid
+        = yield

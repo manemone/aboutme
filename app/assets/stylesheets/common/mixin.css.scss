@@ -1,0 +1,251 @@
+$pastel-red: #F1D7D7;
+$pastel-blue: #E6F4F9;
+$pastel-green: #DEFCD5;
+$pastel-yellow: #F6F3D5;
+
+$flat-turquoise:     #1abc9c;
+$flat-grean-sea:     #16a085;
+$flat-emerald:       #2ecc71;
+$flat-nephritis:     #27ae60;
+$flat-peter-river:   #3498db;
+$flat-belize-hole:   #2980b9;
+$flat-amethyst:      #9b59b6;
+$flat-wisteria:      #8e44ad;
+$flat-wet-asphalt:   #34495e;
+$flat-midnight-blue: #2c3e50;
+$flat-sun-flower:    #f1c40f;
+$flat-orange:        #f39c12;
+$flat-carrot:        #e67e22;
+$flat-pumpkin:       #d35400;
+$flat-alizarin:      #e74c3c;
+$flat-pomegranate:   #c0392b;
+$flat-clouds:        #ecf0f1;
+$flat-silver:        #bdc3c7;
+$flat-concrete:      #95a5a6;
+$flat-asbestos:      #7f8c8d;
+
+$input-border-color: rgba(0, 0, 0, 0.15);
+$input-border-radius: 0.3125em;
+
+@mixin border_radius ($radius: 2px, $options: null) {
+  @include border_radius_tl($radius, $options);
+  @include border_radius_tr($radius, $options);
+  @include border_radius_bl($radius, $options);
+  @include border_radius_br($radius, $options);
+}
+
+@mixin border_radius_tl_tr ($radius: 2px, $options: null) {
+  @include border_radius_tl($radius, $options);
+  @include border_radius_tr($radius, $options);
+}
+
+@mixin border_radius_bl_br ($radius: 2px, $options: null) {
+  @include border_radius_bl($radius, $options);
+  @include border_radius_br($radius, $options);
+}
+
+@mixin border_radius_tl_bl ($radius: 2px, $options: null) {
+  @include border_radius_tl($radius, $options);
+  @include border_radius_bl($radius, $options);
+}
+
+@mixin border_radius_tr_br ($radius: 2px, $options: null) {
+  @include border_radius_tr($radius, $options);
+  @include border_radius_br($radius, $options);
+}
+
+@mixin border_radius_tl ($radius: 2px, $options: null) {
+  -webkit-border-top-left-radius: $radius $options;
+  -moz-border-radius-topleft: $radius $options;
+  border-top-left-radius: $radius $options;
+}
+
+@mixin border_radius_tr ($radius: 2px, $options: null) {
+  -webkit-border-top-right-radius: $radius $options;
+  -moz-border-radius-topright: $radius $options;
+  border-top-right-radius: $radius $options;
+}
+
+@mixin border_radius_bl ($radius: 2px, $options: null) {
+  -webkit-border-bottom-left-radius: $radius $options;
+  -moz-border-radius-bottomleft: $radius $options;
+  border-bottom-left-radius: $radius $options;
+}
+
+@mixin border_radius_br ($radius: 2px, $options: null) {
+  -webkit-border-bottom-right-radius: $radius $options;
+  -moz-border-radius-bottomright: $radius $options;
+  border-bottom-right-radius: $radius $options;
+}
+
+@mixin border_radius_top ($radius: 2px, $options: null) {
+  @include border_radius_tl($radius, $options);
+  @include border_radius_tr($radius, $options);
+  @include border_radius_bl(0, $options);
+  @include border_radius_br(0, $options);
+}
+
+@mixin border_radius_bottom ($radius: 2px, $options: null) {
+  @include border_radius_tl(0, $options);
+  @include border_radius_tr(0, $options);
+  @include border_radius_bl($radius, $options);
+  @include border_radius_br($radius, $options);
+}
+
+@mixin arrow_box_top($color: #f00, $left: 50%, $size: 8px) {
+  @include arrow_box_general(
+    $color: #{$color},
+    $left: #{$left},
+    $top: 0,
+    $mleft: #{-$size},
+    $mtop: #{-$size*2},
+    $size: #{$size}
+  );
+  
+  &:after {
+    border-bottom-color: #{$color};
+  }
+}
+
+@mixin arrow_box_bottom($color: #f00, $left: 50%, $size: 8px) {
+  @include arrow_box_general(
+    $color: #{$color},
+    $left: #{$left},
+    $top: 100%,
+    $mleft: #{-$size},
+    $mtop: 0,
+    $size: #{$size}
+  );
+  
+  &:after {
+    border-top-color: #{$color};
+  }
+}
+
+@mixin arrow_box_right($color: #f00, $top: 50%, $size: 8px) {
+  @include arrow_box_general(
+    $color: #{$color},
+    $left: 100%,
+    $top: #{$top},
+    $mleft: #{0},
+    $mtop: #{-$size},
+    $size: #{$size}
+  );
+  
+  &:after {
+    border-left-color: #{$color};
+  }
+}
+
+@mixin arrow_box_left($color: #f00, $top: 50%, $size: 8px) {
+  @include arrow_box_general(
+    $color: #{$color},
+    $left: 0,
+    $top: #{$top},
+    $mleft: #{-$size*2},
+    $mtop: #{-$size},
+    $size: #{$size}
+  );
+
+  &:after {
+    border-right-color: #{$color};
+  }
+}
+
+@mixin arrow_box_general($color: #f00, $left: 0, $top: 0, $mleft: 0, $mtop: 0, $size: 8px) {
+  position: relative;
+  background: #{$color};
+
+  &:after {
+    content: " ";
+
+    position: absolute;
+    left: #{$left};
+    top: #{$top};
+
+    height: 0;
+    width: 0;
+    margin-left: #{$mleft};
+    margin-top: #{$mtop};
+
+    pointer-events: none;
+
+    border: solid transparent;
+    border-width: $size;
+  }
+}
+
+@mixin box_shadow($x: 0px, $y: 0px, $size: 0px, $spread: 1px, $inset: null, $color: rgba(50, 50, 50, 0.1)) {
+  -webkit-box-shadow: $x $y $size $spread $color $inset;
+  -moz-box-shadow:    $x $y $size $spread $color $inset;
+  box-shadow:         $x $y $size $spread $color $inset;
+}
+
+@mixin light_shadow($x: 0px, $y: 1px, $spread: 1px) {
+  -webkit-box-shadow: $x $y $spread rgba(50, 50, 50, 0.1);
+  -moz-box-shadow:    $x $y $spread rgba(50, 50, 50, 0.1);
+  box-shadow:         $x $y $spread rgba(50, 50, 50, 0.1);
+}
+
+@mixin cancel_box_shadow($options: null) {
+  -webkit-box-shadow: none $options;
+  -moz-box-shadow:    none $options;
+  box-shadow:         none $options;
+}
+
+@mixin linear-gradient($from: null, $to: null) {
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#{$from}', endColorstr = '#{$to}');
+  /*INNER ELEMENTS MUST NOT BREAK THIS ELEMENTS BOUNDARIES*/
+  /*Element must have a height (not auto)*/
+  /*All filters must be placed together*/
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr = "#{$from}", endColorstr = "#{$to}")";
+  /*Element must have a height (not auto)*/
+  /*All filters must be placed together*/
+  background-image: -moz-linear-gradient(top, $from, $to);
+  background-image: -ms-linear-gradient(top, $from, $to);
+  background-image: -o-linear-gradient(top, $from, $to);
+  background-image: -webkit-gradient(linear, center top, center bottom, from($from), to($to));
+  background-image: -webkit-linear-gradient(top, $from, $to);
+  background-image: linear-gradient(top, $from, $to);
+  /*--IE9 DOES NOT SUPPORT CSS3 GRADIENT BACKGROUNDS--*/
+}
+
+@mixin long-shadow($length: 20px, $color: #aaa) {
+  $shadows: "";
+  @for $i from 1px through $length {
+    @if $i == 1px {
+      $shadows: #{$color} #{$i} #{$i}
+    }
+    @else {
+      $shadows: #{$shadows}, #{$color} #{$i} #{$i}
+    }
+  }
+
+  -webkit-box-shadow: $shadows;
+  -moz-box-shadow:    $shadows;
+  box-shadow:         $shadows;
+}
+
+@mixin long-text-shadow($length: 20px, $color: #aaa) {
+  $shadows: "";
+  @for $i from 1px through $length {
+    @if $i == 1px {
+      $shadows: #{$color} #{$i} #{$i}
+    }
+    @else {
+      $shadows: #{$shadows}, #{$color} #{$i} #{$i}
+    }
+  }
+
+  -webkit-text-shadow: $shadows;
+  -moz-text-shadow:    $shadows;
+  text-shadow:         $shadows;
+}
+
+// @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
+@import url(http://fonts.googleapis.com/css?family=Nunito:400,300,700);
+@mixin custom-font-settings($font-weight: 400) {
+  // font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Nunito', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: $font-weight;
+}

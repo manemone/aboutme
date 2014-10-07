@@ -1,0 +1,84 @@
+@import './mixin';
+
+@mixin window-panel ($border-color: rgba(0, 0, 0, 0.15), $border-width: 4px, $border-radius: 4px) {
+  box-sizing: border-box;
+  @include border-radius($border-radius);
+
+  .window-panel-heading {
+    @include border-radius-tl-tr($border-radius);
+
+    background-color: $border-color;
+
+    .buttons {
+      display: inline-block;
+      line-height: 1rem;
+      padding: 0.75rem 1rem;
+
+      .button {
+        $button-size: 1rem;
+        $button-border-width: 2px;
+
+        display: inline-block;
+        box-sizing: border-box;
+        width: $button-size;
+        height: $button-size;
+        margin-right: $button-size/2;
+        @include border-radius($button-size/2);
+        border: $button-border-width solid;
+
+        &:last-child {
+          margin-right: 0;
+        }
+
+        &.batsu {
+          border-color: #dd928f;
+        }
+
+        &.minimize {
+          border-color: #ffbb00;
+        }
+
+        &.optimize {
+          border-color: #00dd52;
+        }
+      }
+    }
+  }
+
+  .window-panel-body {
+    $body-padding: 2rem;
+
+    overflow: hidden;
+
+    padding: $body-padding;
+    border-left: $border-width solid $border-color;
+    border-right: $border-width solid $border-color;
+
+    &:first-child {
+      @include border-radius-tl-tr($border-radius);
+      border-top: $border-width solid $border-color;
+    }
+
+    &:last-child {
+      @include border-radius-bl-br($border-radius);
+      border-bottom: $border-width solid $border-color;
+    }
+
+    > h1:first-child,
+    > h2:first-child,
+    > h3:first-child,
+    > h4:first-child,
+    > h5:first-child,
+    > h6:first-child {
+      margin-top: 0;
+    }
+
+    > .row {
+      margin: -$body-padding;
+    }
+  }
+}
+
+.window-panel {
+  @include window-panel;
+}
