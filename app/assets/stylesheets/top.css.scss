@@ -163,6 +163,18 @@
       $bg-color: $bg-color,
       $shadow-color: $shadow-color
     );
+
+    dl {
+      margin-bottom: 0;
+      padding: 8px;
+
+      dd {
+        margin-bottom: 1rem;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
   }
 }
-
