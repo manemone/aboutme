@@ -1,6 +1,10 @@
 @import './mixin';
 
 @mixin same-height-grid {
+  .same-height-col {
+    padding: 1rem;
+  }
+
   @media (min-width: 768px) {
     display: table;
     table-layout: fixed;
@@ -10,7 +14,7 @@
     .same-height-col {
       display: table-cell;
       float: none;
-      padding: 1rem;
+      vertical-align: top;
     }
   }
 }
