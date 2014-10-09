@@ -1,23 +1,39 @@
 @import 'common/mixin';
 @import 'common/window-panel';
 
-@mixin customized-window-panel($main-color: null, $bg-color: null, $border-color: rgba(black, 0.10), $shadow-color: null) {
+@mixin customized-window-panel($main-color: null, $bg-color: null, $border-color: rgba(black, 0.10), $shadow-color: null, $max-width: null) {
   background-color: $bg-color;
 
   .window-panel {
-    $border-width: 4px;
-    $border-radius: 4px;
+    $border-width: 0px;
+    $border-radius: 4px; 
 
-    @include window-panel($border-color: $border-color, $border-width: $border-width, $border-radius: $border-radius);
+    @include window-panel($border-color: $border-color, $border-width: $border-width, $border-radius: $border-radius, $max-width: $max-width);
 
-    .main-col {
-      background-color: $main-color;
-      color: white;
-    }
+    .same-height-col {
+      h2 {
+        margin-top: 1rem;
 
-    .sub-col {
-      background-color: #f0f0f0;
-      color: #555;
+        small {
+          display: inline-block;
+        }
+      }
+
+      h5 {
+        font-weight: bold;
+        margin-top: 2rem;
+      }
+
+      &.main-col {
+        padding: 2rem;
+        background-color: #FFF3CC;
+        color: #555;
+      }
+
+      &.sub-col {
+        color: #555;
+        background-color: #f7f7f7;
+      }
     }
   }
 }
@@ -26,17 +42,21 @@
   overflow-x: hidden;
 
   .section {
-    $padding: 40px 20px;
+    $padding: 20px;
 
     padding: $padding;
 
     .section-heading {
+      margin: 2rem 0;
+
       text-align: center;
+      color: #555;
 
       .icon {
         overflow: hidden;
 
         display: inline-block;
+        box-sizing: border-box;
         width: 80px;
         height: 80px;
         padding: 10px;
@@ -51,52 +71,61 @@
           font-size: 4.5rem;
           text-align: center;
 
-          color: #aaa;
-
-          @include long-text-shadow($length: 25px, $color: #777);
+          color: white;
         }
-      }
-    }
-
-    .gallery {
-      .picture {
       }
     }
   }
 
   #profile {
-    $main-color: #FF7878;
-    $bg-color: #FC5858;
-    $shadow-color: #E24F4F;
+    $main-color: #aaaaaa;
+    $bg-color: #fafafa;
+    $shadow-color: darken(desaturate($main-color, 20%), 30%);
+    $border-color: #7AA5B8;
 
     .section-heading {
       .icon {
+        background-color: #BFC4D2;
+
         .glyphicon {
           top: 9px;
-          color: $main-color;
-          @include long-text-shadow($length: 30px, $color: $shadow-color);
+          left: 1px;
+          color: white;
         }
       }
     }
 
     @include customized-window-panel(
       $main-color: $main-color,
-      $bg-color: $bg-color,
-      $shadow-color: $shadow-color
+      $bg-color: white,
+      $shadow-color: $shadow-color,
+      $border-color: $border-color,
+      $max-width: 480px
     );
+
+    .sub-col {
+      h3, p {
+        text-align: center;
+      }
+
+      h3 small {
+        display: block;
+      }
+    }
   }
 
   #background {
-    $main-color: #41C4F0;
-    $bg-color: #59A1CD;
-    $shadow-color: #4C95C2;
+    $main-color: #C0EA43;
+    $border-color: #ADEDF5;
+    $bg-color: #DDDFE4;
+    $shadow-color: darken(desaturate($main-color, 20%), 30%);
 
     .section-heading {
       .icon {
         .glyphicon {
           top: 8px;
-          color: $main-color;
-          @include long-text-shadow($length: 25px, $color: $shadow-color);
+          left: 1px;
+          color: #BFC4D2;
         }
       }
     }
@@ -104,7 +133,8 @@
     @include customized-window-panel(
       $main-color: $main-color,
       $bg-color: $bg-color,
-      $shadow-color: $shadow-color
+      $shadow-color: $shadow-color,
+      $border-color: $border-color
     );
 
     table.table {
@@ -120,66 +150,57 @@
         min-width: 90px;
       }
     }
-  }
 
-  #interests {
-    $main-color: #FF7878;
-    $bg-color: #FC5858;
-    $shadow-color: #E24F4F;
-
-    .section-heading {
-      .icon {
-        .glyphicon {
-          top: 9px;
-          left: -2px;
-          color: $main-color;
-          @include long-text-shadow($length: 25px, $color: $shadow-color);
-        }
-      }
+    .sub-col {
+      background-color: white !important;
     }
-
-    @include customized-window-panel(
-      $main-color: $main-color,
-      $bg-color: $bg-color,
-      $shadow-color: $shadow-color
-    );
   }
 
   #works {
-    $main-color: #41C4F0;
-    $bg-color: #59A1CD;
-    $shadow-color: #4C95C2;
+    $main-color: #8FF0F9;
+    $border-color: #FFC1C8;
+    $shadow-color: darken(desaturate($main-color, 20%), 30%);
 
     .section-heading {
       .icon {
+        background-color: #BFC4D2;
+
         .glyphicon {
           top: 7px;
-          left: 1px;
-          color: $main-color;
-          @include long-text-shadow($length: 25px, $color: $shadow-color);
+          left: 2px;
+          color: white;
         }
       }
     }
 
     @include customized-window-panel(
-      $main-color: $main-color,
-      $bg-color: $bg-color,
-      $shadow-color: $shadow-color
+      $main-color: #FFFBEF,
+      $bg-color: white,
+      $shadow-color: $shadow-color,
+      $border-color: $border-color
     );
+
+    .main-col {
+      color: #555;
+
+      blockquote {
+        border-left-color: #FFD092;
+      }
+    }
   }
 
   #contact {
-    $main-color: #FF7878;
-    $bg-color: #FC5858;
-    $shadow-color: #E24F4F;
+    $main-color: #77FFD3;
+    $bg-color: #DDDFE4;
+    $border-color: #F2C5A2;
+    $shadow-color: darken(desaturate($main-color, 20%), 30%);
 
     .section-heading {
       .icon {
         .glyphicon {
           top: 8px;
           left: -6px;
-          color: $main-color;
-          @include long-text-shadow($length: 25px, $color: $shadow-color);
+          color: #BFC4D2;
         }
       }
     }
@@ -187,7 +208,9 @@
     @include customized-window-panel(
       $main-color: $main-color,
       $bg-color: $bg-color,
-      $shadow-color: $shadow-color
+      $shadow-color: $shadow-color,
+      $border-color: $border-color,
+      $max-width: 480px
     );
 
     dl {
@@ -201,6 +224,10 @@
           margin-bottom: 0;
         }
       }
+    }
+
+    .sub-col {
+      background-color: white !important;
     }
   }
 }
