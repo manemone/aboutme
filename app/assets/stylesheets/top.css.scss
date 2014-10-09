@@ -1,14 +1,14 @@
 @import 'common/mixin';
 @import 'common/window-panel';
 
-@mixin customized-window-panel($main-color: null, $bg-color: null, $border-color: rgba(black, 0.10), $shadow-color: null) {
+@mixin customized-window-panel($main-color: null, $bg-color: null, $border-color: rgba(black, 0.10), $shadow-color: null, $max-width: null) {
   background-color: $bg-color;
 
   .window-panel {
-    $border-width: 4px;
-    $border-radius: 4px;
+    $border-width: 0px;
+    $border-radius: 4px; 
 
-    @include window-panel($border-color: $border-color, $border-width: $border-width, $border-radius: $border-radius);
+    @include window-panel($border-color: $border-color, $border-width: $border-width, $border-radius: $border-radius, $max-width: $max-width);
 
     .same-height-col {
       h2 {
@@ -16,7 +16,6 @@
 
         small {
           display: inline-block;
-          // margin-left: 2rem;
         }
       }
 
@@ -27,13 +26,13 @@
 
       &.main-col {
         padding: 2rem;
-        background-color: $main-color;
+        background-color: #FFF3CC;
         color: #555;
       }
 
       &.sub-col {
-        background-color: #fefefe;
         color: #555;
+        background-color: #f7f7f7;
       }
     }
   }
@@ -80,6 +79,7 @@
 
   #profile {
     $main-color: #aaaaaa;
+    $bg-color: #fafafa;
     $shadow-color: darken(desaturate($main-color, 20%), 30%);
     $border-color: #7AA5B8;
 
@@ -99,8 +99,19 @@
       $main-color: $main-color,
       $bg-color: white,
       $shadow-color: $shadow-color,
-      $border-color: $border-color
+      $border-color: $border-color,
+      $max-width: 480px
     );
+
+    .sub-col {
+      h3, p {
+        text-align: center;
+      }
+
+      h3 small {
+        display: block;
+      }
+    }
   }
 
   #background {
@@ -139,6 +150,10 @@
         min-width: 90px;
       }
     }
+
+    .sub-col {
+      background-color: white !important;
+    }
   }
 
   #works {
@@ -167,6 +182,10 @@
 
     .main-col {
       color: #555;
+
+      blockquote {
+        border-left-color: #FFD092;
+      }
     }
   }
 
@@ -190,7 +209,8 @@
       $main-color: $main-color,
       $bg-color: $bg-color,
       $shadow-color: $shadow-color,
-      $border-color: $border-color
+      $border-color: $border-color,
+      $max-width: 480px
     );
 
     dl {
@@ -204,6 +224,10 @@
           margin-bottom: 0;
         }
       }
+    }
+
+    .sub-col {
+      background-color: white !important;
     }
   }
 }
