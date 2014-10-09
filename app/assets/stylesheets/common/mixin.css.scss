@@ -243,10 +243,17 @@ $input-border-radius: 0.3125em;
 }
 
 // @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
-@import url(http://fonts.googleapis.com/css?family=Nunito:400,300,700);
+// @import url(http://fonts.googleapis.com/css?family=Nunito:400,300,700);
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
 @mixin custom-font-settings($font-weight: 400) {
   // font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-family: 'Nunito', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  // font-family: 'Nunito', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Montserrat',
+               'Helvetica Neue',
+               'Helvetica',
+               'Lucida Grande',
+               'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3',
+               Meiryo, メイリオ, sans-serif;
   font-weight: $font-weight;
 }
 
