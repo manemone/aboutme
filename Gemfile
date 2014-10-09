@@ -33,6 +33,8 @@ gem 'slim-rails'
 
 gem 'jquery-smooth-scroll-rails'
 
+gem "lazyload-rails"
+
 group :development do
   gem "better_errors"
   gem "binding_of_caller"
