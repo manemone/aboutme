@@ -64,6 +64,28 @@
     }
   }
 
+  #profile {
+    $main-color: #FF7878;
+    $bg-color: #FC5858;
+    $shadow-color: #E24F4F;
+
+    .section-heading {
+      .icon {
+        .glyphicon {
+          top: 9px;
+          color: $main-color;
+          @include long-text-shadow($length: 30px, $color: $shadow-color);
+        }
+      }
+    }
+
+    @include customized-window-panel(
+      $main-color: $main-color,
+      $bg-color: $bg-color,
+      $shadow-color: $shadow-color
+    );
+  }
+
   #background {
     $main-color: #41C4F0;
     $bg-color: #59A1CD;
@@ -93,10 +115,14 @@
           border-top: none;
         }
       }
+
+      th {
+        min-width: 90px;
+      }
     }
   }
 
-  #experiences {
+  #interests {
     $main-color: #FF7878;
     $bg-color: #FC5858;
     $shadow-color: #E24F4F;
