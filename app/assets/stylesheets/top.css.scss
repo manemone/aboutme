@@ -3,7 +3,6 @@
 
 @mixin customized-window-panel($main-color: null, $bg-color: null, $border-color: rgba(black, 0.10), $shadow-color: null) {
   background-color: $bg-color;
-  border-bottom: 1px solid #eee;
 
   .window-panel {
     $border-width: 4px;
@@ -44,11 +43,13 @@
   overflow-x: hidden;
 
   .section {
-    $padding: 40px 20px;
+    $padding: 20px;
 
     padding: $padding;
 
     .section-heading {
+      margin: 2rem 0;
+
       text-align: center;
       color: #555;
 
@@ -60,7 +61,6 @@
         width: 80px;
         height: 80px;
         padding: 10px;
-        border: 1px solid #555;
         @include border-radius(50%);
 
         background-color: white;
@@ -73,8 +73,6 @@
           text-align: center;
 
           color: white;
-
-          @include text-stroke($color: #555);
         }
       }
     }
@@ -87,9 +85,12 @@
 
     .section-heading {
       .icon {
+        background-color: #BFC4D2;
+
         .glyphicon {
           top: 9px;
           left: 1px;
+          color: white;
         }
       }
     }
@@ -104,7 +105,8 @@
 
   #background {
     $main-color: #C0EA43;
-    $border-color: #B4E2E8;
+    $border-color: #ADEDF5;
+    $bg-color: #DDDFE4;
     $shadow-color: darken(desaturate($main-color, 20%), 30%);
 
     .section-heading {
@@ -112,13 +114,14 @@
         .glyphicon {
           top: 8px;
           left: 1px;
+          color: #BFC4D2;
         }
       }
     }
 
     @include customized-window-panel(
       $main-color: $main-color,
-      $bg-color: white,
+      $bg-color: $bg-color,
       $shadow-color: $shadow-color,
       $border-color: $border-color
     );
@@ -145,9 +148,12 @@
 
     .section-heading {
       .icon {
+        background-color: #BFC4D2;
+
         .glyphicon {
           top: 7px;
           left: 2px;
+          color: white;
         }
       }
     }
@@ -166,7 +172,8 @@
 
   #contact {
     $main-color: #77FFD3;
-    $border-color: #DDB595;
+    $bg-color: #DDDFE4;
+    $border-color: #F2C5A2;
     $shadow-color: darken(desaturate($main-color, 20%), 30%);
 
     .section-heading {
@@ -174,13 +181,14 @@
         .glyphicon {
           top: 8px;
           left: -6px;
+          color: #BFC4D2;
         }
       }
     }
 
     @include customized-window-panel(
       $main-color: $main-color,
-      $bg-color: white,
+      $bg-color: $bg-color,
       $shadow-color: $shadow-color,
       $border-color: $border-color
     );

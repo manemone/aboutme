@@ -20,7 +20,7 @@
 }
 
 #sidebar-wrapper {
-  background-color: #EEEFF2;
+  background-color: #282A30;
 }
 
 .sidebar {
@@ -99,7 +99,7 @@
           width: 45px;
           height: 45px;
           padding: 10px;
-          border: 1px solid #555;
+          border: 1px solid rgba(255, 255, 255, 0.75);
           @include border-radius(50%);
 
           span.glyphicon {
@@ -109,7 +109,7 @@
             font-size: 2.5rem;
             text-align: center;
 
-            color: #222;
+            color: rgba(255, 255, 255, 0.75);
           }
         }
 
@@ -117,7 +117,7 @@
           position: relative;
           z-index: 1000;
 
-          color: #555;
+          color: rgba(255, 255, 255, 0.75);
         }
       }
     }
