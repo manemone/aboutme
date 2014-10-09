@@ -13,19 +13,19 @@ body
         ul.sidebar-nav
           li
             .cell.brand
-              = image_tag('avatar.jpg')
+              = x_image_tag('avatar.jpg')
           li
-            = link_to '#career', class: "cell carrer" do
+            = link_to '#profile', class: "cell profile" do
+              .icon
+                span.glyphicon.glyphicon-user
+              .description
+                | profile
+          li
+            = link_to '#background', class: "cell background" do
               .icon
                 span.glyphicon.glyphicon-briefcase
               .description
-                | career
-          li
-            = link_to '#experiences', class: "cell experiences" do
-              .icon
-                span.glyphicon.glyphicon-list-alt
-              .description
-                | exp.
+                | background
           li
             = link_to '#works', class: "cell works" do
               .icon

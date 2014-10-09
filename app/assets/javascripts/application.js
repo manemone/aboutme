@@ -13,6 +13,15 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-smooth-scroll
+//= require jquery-lazy-load
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
+
+
+$(document).on('page:change', function (e) {
+  $("img").lazyload({
+    container: $(".container-fluid > .fill"),
+    effect: "fadeIn"
+  });
+});

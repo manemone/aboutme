@@ -1,0 +1,34 @@
+@import 'mixin';
+
+@mixin gallery($spacing: 0.5rem) {
+  margin-left: -$spacing !important;
+  margin-right: -$spacing !important;
+  margin-bottom: -$spacing*2 !important;
+}
+
+@mixin picture($width: 100%, $spacing: 0.5rem, $border-width: 0.5rem) {
+  display: inline-block;
+  box-sizing: border-box;
+  width: $width;
+
+  margin: 0 $spacing $spacing*2 0;
+  border: $border-width white solid;
+  @include light-shadow;
+}
+
+.gallery {
+  $spacing: 0.5rem;
+
+  @include gallery($spacing: $spacing);
+
+  [class^="col-"],
+  [class*=" col-"] {
+    padding-left: $spacing;
+    padding-right: $spacing;
+
+    > img.picture {
+      @include picture($spacing: $spacing);
+    }
+  }
+}
+

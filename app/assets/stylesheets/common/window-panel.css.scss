@@ -4,6 +4,10 @@
   box-sizing: border-box;
   @include border-radius($border-radius);
 
+  & + .window-panel {
+    margin-top: 2rem;
+  }
+
   .window-panel-heading {
     @include border-radius-tl-tr($border-radius);
 
@@ -74,7 +78,16 @@
     }
 
     > .row {
-      margin: -$body-padding;
+      margin-left: -$body-padding;
+      margin-right: -$body-padding;
+
+      &:first-child {
+        margin-top: -$body-padding;
+      }
+
+      &:last-child {
+        margin-bottom: -$body-padding;
+      }
     }
   }
 }
